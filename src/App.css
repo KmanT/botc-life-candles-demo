@@ -50,10 +50,17 @@ header {
   display: block;
 }
 
+.flex-container {
+  display: flex;
+}
+
 .circle-container {
-  /* position: relative; */
+  position: relative;
   width: 400px;
   height: 200px;
+  margin-top: 8rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .circle-element {

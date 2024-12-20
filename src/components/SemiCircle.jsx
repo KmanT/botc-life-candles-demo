@@ -1,20 +1,24 @@
 export default function SemiCircle ({ items, radius = 12.5, height = 6.25, width = 12.5  }) {
     const angleStep = 190 / items.length;
+
+    function calculateTransform (idx) {
+      return `rotate(-${(idx) * angleStep}deg) translate(${radius}rem, 0) rotate(${idx * angleStep}deg)`;
+    }
   
     return (
       <div
-        className="circle-container card"
+        className="circle-container"
         style={{
             height: `${height}rem`,
             width: `${width}rem`,
         }}
       >
-        {items.map((item, index) => (
+        {items.map((item, idx) => (
           <div 
-            key={index} 
+            key={idx} 
             className="circle-element"
             style={{
-              transform: `rotate(-${(index) * angleStep}deg) translate(${radius}rem, 0) rotate(${index * angleStep}deg)`
+              transform: calculateTransform(idx)
             }}
           >
             {item}
