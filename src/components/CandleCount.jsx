@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 
+import Input from './Input';
+
 export default function CandleCount ({ onCountChange }) {
     const count = useRef()
 
@@ -10,8 +12,12 @@ export default function CandleCount ({ onCountChange }) {
     }
 
     return <form id='candle-form' className='card' onSubmit={handleSubmit}>
-        <label htmlFor="candle-count">Number of candles</label>
-        <input ref={count} id="candle-count" type="number" />
+        <Input 
+            id={"candle-count"}
+            ref={count}
+            type="number"
+            label="Number of candles"
+        />
         <button >Set Candle Count</button>
     </form>
 
