@@ -5,10 +5,12 @@ const MIN_TO_MS = 60000;
 const S_TO_MS = 1000;
 
 export default function Timer ({}) {
-  const [timeRemaing, setTimeRemaining] = useState();
+  const [timeRemaing, setTimeRemaining] = useState(10 * MIN_TO_MS);
   const timer = useRef();
   const minutes = useRef();
   const seconds = useRef();
+
+  const timerIsActive = timeRemaing > 0 && timeRemaing < targetTime * 1000;
 
   function handleSetTimer (event) {
     event.preventDefault();
