@@ -2,8 +2,7 @@ import { useState } from 'react'
 import CandleCount from './components/CandleCount';
 import SemiCircle from './components/SemiCircle'
 import LifeButton from './components/LifeButton';
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import Timer from './components/Timer';
 import './App.css'
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
 
   const buttons = [...Array(candlesCount).keys()]
   .map(v => {
-    console.log(v);
     return <LifeButton key={v} idx={v}/>
   });
 
@@ -30,6 +28,7 @@ function App() {
       <div className="flex-container">
         <SemiCircle items={buttons}/>
       </div>
+      <Timer />
     </main>
   )
 }
