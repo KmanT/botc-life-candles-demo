@@ -12,9 +12,12 @@ export default function Timer () {
   const seconds = useRef();
 
   const timerIsActive = timeRemaining > 0 && timeRemaining < targetTime;
-  console.log("timerIsActive", timerIsActive);
 
-  const formattedTime  = `${Math.floor(timeRemaining / MIN_TO_MS)}:${(timeRemaining % MIN_TO_MS).toFixed(0)}`;
+  const minCount = Math.floor(timeRemaining / MIN_TO_MS);
+  const secondsCount = (timeRemaining % MIN_TO_MS) / 1000;
+
+  const formattedTime  =
+    `${minCount}:${(secondsCount).toFixed(0)}`;
 
   if (timeRemaining <= 0) {
     clearInterval(timer.current);
@@ -33,20 +36,16 @@ export default function Timer () {
 
     setTargetTime(time);
     setTimeRemaining(time);
-    console.log('timer is set');
   }
 
   function handleStart () {
     timer.current = setInterval(() => {
       setTimeRemaining(prev => prev - 10);
     }, 10);
-    console.log('timer has started');
   }
 
   function handlePause () {
     clearInterval(timer.current);
-    console.log('timer has paused');
-    console.log('timeRemaining', timeRemaining);
   }
 
   return <>
