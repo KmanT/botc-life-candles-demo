@@ -4,7 +4,7 @@ export default function SemiCircle ({ items, radius = 12.5, height = 6.25, width
     function calculateTransform (idx) {
       return `rotate(-${(idx) * angleStep}deg) translate(${radius}rem, 0) rotate(${idx * angleStep}deg)`;
     }
-  
+
     return (
       <div
         className="circle-container"
@@ -13,9 +13,9 @@ export default function SemiCircle ({ items, radius = 12.5, height = 6.25, width
             width: `${width}rem`,
         }}
       >
-        {items.map((item, idx) => (
-          <div 
-            key={idx} 
+        {items.toReversed().map((item, idx) => (
+          <div
+            key={idx}
             className="circle-element"
             style={{
               transform: calculateTransform(idx)
